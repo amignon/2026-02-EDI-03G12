@@ -1,7 +1,12 @@
 public class TestaAluno {
     public static void main(String[] args) {
         Aluno a1 = new Aluno("Ale");
-        Aluno a2 = new Aluno("Mignon");
+        Aluno a2 = new Aluno("Mignon", 9.0, 4.5);
+
+
+        a1.exibeInfo();
+        a2.exibeInfo();
+
 
         a1.nota1 = 7.0;
         a1.nota2 = 8.0;
