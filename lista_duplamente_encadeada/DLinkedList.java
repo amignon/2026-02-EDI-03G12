@@ -68,5 +68,27 @@ public class DLinkedList<E> implements MyLinkedList<E> {
     public E removeLast() {
         return remove(trailer.getPrev());
     }
+
+    public void reverse()  {
+        DNode<E> no = header.getNext();
+        DNode<E> aux;
+        while (no.getNext() != null) {
+            System.out.print(no.getElement() + " ");
+            aux = no.getNext();
+            no.setNext(aux.getNext());
+            aux.setPrev(no.getPrev());
+            aux.setNext(no.getNext());
+            no = no.getNext();
+        }
+    }
+
+    public void imprime() {
+        DNode<E> no = header.getNext();
+        while (no.getNext() != null) {
+            System.out.print(no.getElement() + " ");
+            no = no.getNext();
+        }
+        System.out.println();
+    }
     
 }
