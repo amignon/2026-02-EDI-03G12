@@ -22,13 +22,15 @@ public class DLinkedList<E> implements MyLinkedList<E> {
 
     @Override
     public E first() {
-       if (isEmpty()) throw new IllegalStateException();
-       return header.getNext().getElement();
+        if (isEmpty())
+            throw new IllegalStateException();
+        return header.getNext().getElement();
     }
 
     @Override
     public E last() {
-        if (isEmpty()) throw new IllegalStateException();
+        if (isEmpty())
+            throw new IllegalStateException();
         return trailer.getPrev().getElement();
     }
 
@@ -69,17 +71,19 @@ public class DLinkedList<E> implements MyLinkedList<E> {
         return remove(trailer.getPrev());
     }
 
-    public void reverse()  {
-        DNode<E> no = header.getNext();
-        DNode<E> aux;
-        while (no.getNext() != null) {
-            System.out.print(no.getElement() + " ");
-            aux = no.getNext();
-            no.setNext(aux.getNext());
-            aux.setPrev(no.getPrev());
-            aux.setNext(no.getNext());
-            no = no.getNext();
+    public void reverse() {
+        DNode<E> no = header;
+        DNode<E> temp;
+        while (no != null) {
+            temp = no.getNext();
+            no.setNext(no.getPrev());
+            no.setPrev(temp);
+            no = temp;
         }
+
+        temp = header;
+        header = trailer;
+        trailer = temp;
     }
 
     public void imprime() {
@@ -90,5 +94,5 @@ public class DLinkedList<E> implements MyLinkedList<E> {
         }
         System.out.println();
     }
-    
+
 }
