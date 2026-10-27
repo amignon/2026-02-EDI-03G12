@@ -80,7 +80,6 @@ public class DLinkedList<E> implements MyLinkedList<E> {
             no.setPrev(temp);
             no = temp;
         }
-
         temp = header;
         header = trailer;
         trailer = temp;
